@@ -1,15 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
-void main() {
-  runApp(const MainApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  try {
+    await Supabase.initialize(
+      url: 'http://localhost:54321',
+      anonKey: '',
+    );
+
+    runApp(
+      const App(),
+    );
+  } on Exception catch (e) {
+    return runApp(
+      ErrorWidget(e),
+    );
+  }
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class App extends StatelessWidget {
+  const App({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       home: Scaffold(
         body: Center(
           child: Text('Hello World!'),
