@@ -1,0 +1,15 @@
+name: supabase_flutter_wasm_example
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.4.3 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+flutter:
+  uses-material-design: true
